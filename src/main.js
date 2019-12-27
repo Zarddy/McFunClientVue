@@ -9,8 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import VideoPlayer from 'vue-video-player'
-require('video.js/dist/video-js.css')
-require('vue-video-player/src/custom-theme.css')
 
 import {
   /* eslint-disable no-unused-vars */
@@ -60,6 +58,9 @@ import {
 } from 'cube-ui'
 import App from './App'
 import router from './router'
+
+require('video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
 
 Vue.use(Button)
 Vue.use(Loading)

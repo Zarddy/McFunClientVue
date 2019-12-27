@@ -16,13 +16,14 @@
           <b-card-group columns>
             <template v-for="(data, index) in items">
               <b-card
+                :key="index"
                 :title="data.title"
                 :img-src="data.avatar"
                 img-alt="Image"
                 img-top
                 tag="article"
-                class="mb-3"
-                @click="handleClick(data)">
+                class="mb-3">
+                <b-button block variant="primary" @click="handleClick(data, index)">点击查看</b-button>
               </b-card>
             </template>
           </b-card-group>
@@ -41,7 +42,6 @@
         size: 50,
         offset: 100,
         items: [],
-
         options: {
           scrollbar: {
             fade: true
@@ -62,14 +62,14 @@
         }
       }
     },
-    mounted() {
-      this.onPullingDown();
+    created () {
+      this.onPullingDown()
     },
     methods: {
-      onFetch(refresh) {
-        let api_url = 'http://mcapi.zarddy.club/article/mongo_list';
-        let type = 3;
-        let page = 2;
+      onFetch (refresh) {
+        // let api_url = 'http://mcapi.zarddy.club/article/mongo_list'
+        // let type = 3
+        // let page = 2
 
         // let items = []
         return new Promise((resolve) => {
@@ -88,19 +88,23 @@
         })
       },
 
-      handleClick(data) {
-        console.log('Item:' + data)
+      handleClick (data, index) {
+        if (index % 2 === 0) {
+          this.$router.push({name: 'ArticleVideo', params: {article: data}})
+        } else {
+          this.$router.push({name: 'ArticleImage', params: {article: data}})
+        }
       },
       // 下拉刷新
-      onPullingDown() {
-        this.onFetch(true);
+      onPullingDown () {
+        this.onFetch(true)
       },
       // 上拉加载更多
-      onPullingUp() {
-        this.onFetch(false);
+      onPullingUp () {
+        this.onFetch(false)
       }
     }
-  };
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

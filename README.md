@@ -1,4 +1,4 @@
-# mcfun_client_vue
+# McfunClientVue
 
 > McFun Client Vue Project
 

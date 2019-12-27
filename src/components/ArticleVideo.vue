@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {handleClipboard} from '../common/Utils';
+  import {handleClipboard} from '../common/Utils'
   export default {
     name: 'ArticleVideo',
     data () {
@@ -42,7 +42,7 @@
             type: 'video/mp4', // 这里的种类支持很多种：基本视频格式、直播、流媒体等，具体可以参看git网址项目
             src: 'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm' // url地址
           }],
-          poster: '/static/logo.png', // 你的封面地址
+          poster: '/static/images/logo.png', // 你的封面地址
           // width: document.documentElement.clientWidth, // 播放器宽度
           notSupportedMessage: '此视频暂无法播放，请稍后再试', // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
           controlBar: {
@@ -64,18 +64,18 @@
             this.$bvToast.toast(' ', {
               title: '已经复制在剪贴版',
               variant: 'primary',
-              autoHideDelay: 800,
+              autoHideDelay: 800
             })
           },
           () => {
             this.$bvToast.toast(' ', {
               title: '复制失败！',
-              autoHideDelay: 800,
+              autoHideDelay: 800
             })
           })
       }
     }
-  };
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

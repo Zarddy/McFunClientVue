@@ -6,27 +6,22 @@
     </b-navbar>
 
     <div class="view-wrapper">
-
-      <cube-scroll
-        ref="scroll"
-        :data="imgs">
-        <div>
-          <b-card-group columns>
-            <template v-for="(img, index) in imgs">
-              <b-card
-                :img-src="img"
-                img-alt="Image"
-                img-top
-                tag="article"
-                class="mb-3"
-                no-body="true"
-                @click="handleImgsClick(index)">
-              </b-card>
-            </template>
-          </b-card-group>
-        </div>
-      </cube-scroll>
-
+      <div>
+        <b-card-group columns>
+          <template v-for="(img, index) in images">
+            <b-card
+              :key="index"
+              :img-src="img"
+              img-alt="Image"
+              img-top
+              tag="article"
+              class="mb-3"
+              no-body
+              @click="handleImgsClick(index)">
+            </b-card>
+          </template>
+        </b-card-group>
+      </div>
     </div>
   </div>
 </template>
@@ -37,24 +32,35 @@
     data () {
       return {
         initialIndex: 0,
-        imgs: [
-          'https://wx1.sinaimg.cn/mw1024/686d7361ly1fpha0mpd5uj21hc0tyws2.jpg',
-          'https://wx1.sinaimg.cn/mw1024/686d7361ly1fpha0ncnnej21hc0zetxo.jpg',
-          'https://wx1.sinaimg.cn/mw1024/686d7361ly1fpha0mqvu5j21hc0zkgzz.jpg'
-        ]
+        images: [
+          '/static/images/686d7361ly1fpha0mpd5uj21hc0tyws2.jpg',
+          '/static/images/686d7361ly1fpha0ncnnej21hc0zetxo.jpg',
+          '/static/images/686d7361ly1fpha0mqvu5j21hc0zkgzz.jpg'
+        ],
+        options: {
+          scrollbar: {
+            fade: true
+          },
+          pullUpLoad: {
+          },
+          click: false
+        }
       }
     },
-    mounted() {
-
+    mounted () {
+      var data = this.$route.params.article
+      if (data) {
+        console.log('articleImage. . mounted . data  id: ' + data.id)
+      }
     },
     methods: {
-      handleImgsClick(index) {
+      handleImgsClick (index) {
         this.initialIndex = index
         const params = {
           $props: {
-            imgs: this.imgs,
+            imgs: this.images,
             initialIndex: 'initialIndex', // 响应式数据的key名
-            loop: false
+            loop: true
           },
           $events: {
             change: (i) => {
@@ -66,7 +72,7 @@
         this.$createImagePreview({ ...params }).show()
       }
     }
-  };
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -76,6 +82,7 @@
     top: 60px;
     left: 0;
     bottom: 0;
-    margin: 0 15px;
+    padding: 0 15px;
+    overflow: auto;
   }
 </style>
