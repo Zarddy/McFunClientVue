@@ -2,7 +2,7 @@
   <div class="article-video">
 
     <b-navbar toggleable="lg" type="dark" variant="primary">
-      <b-navbar-brand href="#">Article Video Page</b-navbar-brand>
+      <b-navbar-brand href="#" @click="back">Article Video Page</b-navbar-brand>
     </b-navbar>
 
     <video-player  class="video-player vjs-custom-skin"

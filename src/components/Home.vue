@@ -71,11 +71,10 @@
         // let type = 3
         // let page = 2
 
-        // let items = []
         return new Promise((resolve) => {
           // 模拟请求 50 条数据，因为 size 设置为 50
           setTimeout(() => {
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 5; i++) {
               this.items.push({
                 id: i,
                 avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/danpliego/128.jpg',

@@ -2,7 +2,7 @@
   <div class="article-image">
 
     <b-navbar toggleable="lg" type="dark" variant="primary">
-      <b-navbar-brand href="#">Article Image Page</b-navbar-brand>
+      <b-navbar-brand href="#" @click="back">Article Image Page</b-navbar-brand>
     </b-navbar>
 
     <div class="view-wrapper">

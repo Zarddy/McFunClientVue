@@ -106,6 +106,8 @@ Vue.use(VideoPlayer)
 
 Vue.config.productionTip = false
 
+Vue.prototype.back = () => router.back(-1)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
