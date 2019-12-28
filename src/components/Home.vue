@@ -70,10 +70,12 @@
         // let api_url = 'http://mcapi.zarddy.club/article/mongo_list'
         // let type = 3
         // let page = 2
-
         return new Promise((resolve) => {
           // 模拟请求 50 条数据，因为 size 设置为 50
           setTimeout(() => {
+            if (refresh) {
+              this.items = []
+            }
             for (let i = 0; i < 5; i++) {
               this.items.push({
                 id: i,

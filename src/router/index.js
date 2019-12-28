@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import ArticleImage from '@/components/ArticleImage'
 import ArticleVideo from '@/components/ArticleVideo'
+import TabView from '@/components/TabView'
 
 Vue.use(Router)
 
@@ -12,6 +13,14 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'TabView',
+      component: TabView,
+      meta: {
+        keepAlive: true
+      }
+    },
+    {
+      path: '/Home',
       name: 'Home',
       component: Home,
       meta: {
